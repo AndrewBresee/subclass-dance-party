@@ -31,10 +31,15 @@ $(document).ready(function() {
       0
     );
 
-
-
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
+
+    $('.dancer').on('click', function(event){
+      $(this).addClass('explode');
+      $(this).fadeOut(100, function(){
+        $(this).remove();
+      });
+    });
 
   });
 
@@ -50,6 +55,8 @@ $(document).ready(function() {
       }, "slow");
     });  
   });
+
+  
 
   var makeRandomSpeed = function(){
     var randomHeight = $(window)[0].innerHeight*Math.random();
@@ -74,14 +81,25 @@ $(document).ready(function() {
       $(window)[0].innerWidth*Math.random(), 
       0);
      
-
     window.dancers.push(movingDancer);
     
     $('body').append(movingDancer.$node); 
+
+    $('.dancer2').on('click', function(event){
+      $(this).addClass('explode');
+      $(this).fadeOut(100, function(){
+        $(this).remove();
+      });
+    });
+
   });
 
   $('.scatter').on('click', function(event){
     window.move = true;
   });
+
+
+
+
 
 });
