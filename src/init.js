@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.move = true;
 
   $(".addDancerButton").on("click", function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -27,7 +28,7 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      0
     );
 
 
@@ -35,11 +36,15 @@ $(document).ready(function() {
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
 
-
+  });
 
   $('.lineUp').on('click', function(event){
+
+    window.move = false;
+    var targetHeight = $("body").height() * 0.62;
+    var bodyWidth = $("body").width();
+
     window.dancers.forEach(function(dancer){
-      //var newStyleSetting = {top: $("body").height() * 0.62, left: dancer.styleSettings.left};
       dancer.$node.animate({
         top: $("body").height() * 0.62,
       }, "slow");
@@ -58,15 +63,17 @@ $(document).ready(function() {
     return positionObject;
   };
 
-  });
-
   $(".addMover").on("click", function(event){
     var dancerMoverFunction = $(this).data("dancer-mover-function-name");
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMover = window[dancerMoverFunction];
 
-    var movingDancer = new dancerMover(50,50, Math.random()*5000);
+    var movingDancer = new dancerMover(
+      $(window)[0].innerHeight*Math.random(),
+      $(window)[0].innerWidth*Math.random(), 
+      0);
+     
 
     window.dancers.push(movingDancer);
     

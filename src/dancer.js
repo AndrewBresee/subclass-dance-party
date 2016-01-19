@@ -15,7 +15,6 @@ var makeDancer = function(top, left, timeBetweenSteps) {
 makeDancer.prototype.step = function(timeBetweenSteps) {
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
-
   var context = this;
 
   setTimeout(function(){

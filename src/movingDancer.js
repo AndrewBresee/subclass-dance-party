@@ -20,23 +20,25 @@ var movingDancer = function(top, left, timeBetweenSteps){
 movingDancer.prototype = Object.create(makeBlinkyDancer.prototype);
 
 movingDancer.prototype.step = function(timeBetweenSteps){
-  makeBlinkyDancer.prototype.step.call(this, timeBetweenSteps);
+  makeBlinkyDancer.prototype.step.call(this, 0);
 
-  var makeRandomSpeed = function(){
-    var randomHeight = $(window)[0].innerHeight*Math.random();
-    var randomLeft = $(window)[0].innerWidth*Math.random(); 
+  if(window.move){
+    var makeRandomSpeed = function(){
+      var randomHeight = $(window)[0].innerHeight*Math.random();
+      var randomLeft = $(window)[0].innerWidth*Math.random(); 
 
-    var positionObject = {
-      top: randomHeight,
-      left: randomLeft
+      var positionObject = {
+        top: randomHeight,
+        left: randomLeft
+      };
+
+      return positionObject;
     };
 
-    return positionObject;
-  };
-
-  var newPosition = makeRandomSpeed();
-  
-  this.$node.animate(newPosition, Math.random()*5000);
+    var newPosition = makeRandomSpeed();
+    
+    this.$node.animate(newPosition, Math.random()*5000);
+  }
 
 };
 
