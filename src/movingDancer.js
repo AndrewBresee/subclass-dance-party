@@ -1,12 +1,45 @@
-    var move = function(){
-      window.dancers.forEach(function(dancer){
+/*var move = function(){
+    window.dancers.forEach(function(dancer){
 
-        var newPosition = makeRandomSpeed();
-        console.log(newPosition);
-        dancer.$node.animate(newPosition, Math.random()*5000);
-      });
-      setTimeout(move, 1000);
+      var newPosition = makeRandomSpeed();
+      console.log(newPosition);
+      dancer.$node.animate(newPosition, Math.random()*5000);
+    });
+    setTimeout(move, 1000);
+  };
+
+  move();
+});
+
+*/
+
+var movingDancer = function(top, left, timeBetweenSteps){
+  makeBlinkyDancer.call(this, top, left, timeBetweenSteps);
+};
+
+movingDancer.prototype = Object.create(makeBlinkyDancer.prototype);
+
+movingDancer.prototype.step = function(timeBetweenSteps){
+  makeBlinkyDancer.prototype.step.call(this, timeBetweenSteps);
+
+  var makeRandomSpeed = function(){
+    var randomHeight = $(window)[0].innerHeight*Math.random();
+    var randomLeft = $(window)[0].innerWidth*Math.random(); 
+
+    var positionObject = {
+      top: randomHeight,
+      left: randomLeft
     };
 
-    move();
-  });
+    return positionObject;
+  };
+
+  var newPosition = makeRandomSpeed();
+  
+  this.$node.animate(newPosition, Math.random()*5000);
+
+};
+
+movingDancer.prototype.constructor = movingDancer;
+
+
