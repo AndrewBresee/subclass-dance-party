@@ -16,7 +16,6 @@ $(document).ready(function() {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
-
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
@@ -61,13 +60,16 @@ $(document).ready(function() {
 
   });
 
-$(".addMover").on("click", function(event){
-  console.log("Test")
-      var dancerMoverFunction = $(this).data("dancer-mover-function-name");
+  $(".addMover").on("click", function(event){
+    var dancerMoverFunction = $(this).data("dancer-mover-function-name");
 
-      // get the maker function for the kind of dancer we're supposed to make
-      var dancerMover = window[dancerMoverFunction];
-      var movingDancer = new dancerMover(0,0, Math.random()*5000); 
-      $('body').append(movingDancer.$node); 
-    });
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMover = window[dancerMoverFunction];
+
+    var movingDancer = new dancerMover(50,50, Math.random()*5000);
+
+    window.dancers.push(movingDancer);
+    
+    $('body').append(movingDancer.$node); 
+  });
 });
