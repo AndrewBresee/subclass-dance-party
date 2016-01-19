@@ -23,7 +23,7 @@ makeBlinkyDancer.prototype.step = function(timeBetweenSteps) {
    this.$node.animate({top:'-=20'}, 500);
 
 
-
+   this.$node.addClass('dancer2');
 };
 
 makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;

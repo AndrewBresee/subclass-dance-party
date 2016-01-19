@@ -23,6 +23,7 @@ movingDancer.prototype.step = function(timeBetweenSteps){
   makeBlinkyDancer.prototype.step.call(this, 0);
 
   if(window.move){
+    this.$node.removeClass('explode');
     var makeRandomSpeed = function(){
       var randomHeight = $(window)[0].innerHeight*Math.random();
       var randomLeft = $(window)[0].innerWidth*Math.random(); 

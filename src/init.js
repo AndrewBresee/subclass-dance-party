@@ -79,4 +79,9 @@ $(document).ready(function() {
     
     $('body').append(movingDancer.$node); 
   });
+
+  $('.scatter').on('click', function(event){
+    window.move = true;
+  });
+
 });
