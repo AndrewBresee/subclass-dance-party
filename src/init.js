@@ -29,12 +29,40 @@ $(document).ready(function() {
     );
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
+
+    var move = function(){
+      window.dancers.forEach(function(dancer){
+
+        var newPosition = makeRandomSpeed();
+        console.log(newPosition);
+        dancer.$node.animate(newPosition, Math.random()*5000);
+      });
+      setTimeout(move, 1000);
+    };
+
+    move();
   });
 
   $('.lineUp').on('click', function(event){
     window.dancers.forEach(function(dancer){
-      var newStyleSetting = {top: $("body").height() * 0.62, left: dancer.styleSettings.left};
-      dancer.styleSettings.top = dancer.$node.css(newStyleSetting);
+      //var newStyleSetting = {top: $("body").height() * 0.62, left: dancer.styleSettings.left};
+      dancer.$node.animate({
+        top: $("body").height() * 0.62,
+      }, "slow");
     });  
-  })
+  });
+
+  var makeRandomSpeed = function(){
+    var randomHeight = $(window)[0].innerHeight*Math.random();
+    var randomLeft = $(window)[0].innerWidth*Math.random(); 
+
+    var positionObject = {
+      top: randomHeight,
+      left: randomLeft
+    };
+
+    return positionObject;
+  };
+
+
 });
