@@ -17,8 +17,6 @@ makeDancer.prototype.step = function(timeBetweenSteps) {
   // it just schedules the next step
 
   var context = this;
-  console.log("context:", context);
-  console.log("Time: ", timeBetweenSteps);
 
   setTimeout(function(){
     context.step(timeBetweenSteps);

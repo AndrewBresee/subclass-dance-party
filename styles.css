@@ -1,5 +1,9 @@
 body, html{
   height:100%;
+  background-image: url("http://worldartsme.com/images/ocean-water-clipart-1.jpg");
+  background-size: 100%;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 body{
   margin: 0px;
@@ -9,7 +13,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .lineUp{
   padding:5px 12px;
   float:right;
 }
@@ -20,7 +24,19 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+
 .dancer{
+  border:10px solid red;
+  border-radius:10px;
+  position:absolute;
+}
+
+.dancer2{
+  background-image: url("http://www.netanimations.net/fatcat-Q.gif");
+  position:absolute;
+  background-size: 10%;
+}
+.dancer3{
   border:10px solid red;
   border-radius:10px;
   position:absolute;

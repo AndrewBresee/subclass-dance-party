@@ -27,7 +27,14 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
-});
 
+  $('.lineUp').on('click', function(event){
+    window.dancers.forEach(function(dancer){
+      var newStyleSetting = {top: $("body").height() * 0.62, left: dancer.styleSettings.left};
+      dancer.styleSettings.top = dancer.$node.css(newStyleSetting);
+    });  
+  })
+});
