@@ -38,6 +38,8 @@ movingDancer.prototype.step = function(timeBetweenSteps){
     var newPosition = makeRandomSpeed();
     
     this.$node.animate(newPosition, Math.random()*5000);
+  }else{
+    this.$node.addClass('explode');
   }
 
 };

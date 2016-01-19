@@ -13,7 +13,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .lineUp{
+.title, .addDancerButton, .lineUp, .addMover{
   padding:5px 12px;
   float:right;
 }
@@ -26,18 +26,22 @@ body, a:link, a:visited, a:active{
 }
 
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  background-image: url("http://fla.fg-a.com/boats/sail-boat-animated-1.gif");
   position:absolute;
+  background-size: 100%;
 }
 
 .dancer2{
   background-image: url("http://www.netanimations.net/fatcat-Q.gif");
   position:absolute;
-  background-size: 10%;
 }
-.dancer3{
-  border:10px solid red;
-  border-radius:10px;
+.explode{
+  background-image: url("http://rs651.pbsrc.com/albums/uu236/416o/explosion.gif~c200");
   position:absolute;
+}
+
+img{
+  width: 50px;
+  height: 50px;
+  border: none;
 }
