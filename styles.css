@@ -1,6 +1,6 @@
 body, html{
   height:100%;
-  background-image: url("http://worldartsme.com/images/ocean-water-clipart-1.jpg");
+  background-image: url("https://mytwopiasters.files.wordpress.com/2011/01/ocean.jpg");
   background-size: 100%;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -48,12 +48,9 @@ body, a:link, a:visited, a:active{
   background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12488695,width=178,height=178,version=1378216989/Icebear-Iceberg.png");
 }
 
-img{
-  width: 50px;
-  height: 50px;
-  border: 0px;
-  border-style: none;
-  outline: 0px;
+.dancer{
+  width: 200px;
+  height: 200px;
 }
 
 .argg{

@@ -15,8 +15,6 @@ makeBlinkyDancer.prototype.step = function(timeBetweenSteps) {
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
 
-  //this.$node.toggle();
-
   //Make object move left and right
 
    this.$node.animate({top:'+=20'}, 500);
