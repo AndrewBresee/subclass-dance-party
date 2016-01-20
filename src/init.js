@@ -86,11 +86,54 @@ $(document).ready(function() {
     $('body').append(movingDancer.$node); 
 
     $('.dancer2').on('click', function(event){
+
+      $(this).fadeOut("fast");
       $(this).addClass('explode');
       $(this).fadeOut(100, function(){
         $(this).remove();
       });
     });
+
+
+    window.setInterval(function(){
+      var dancers = $('img');
+      console.log(dancers); 
+      dancers.forEach(function(img){
+        var top = parseInt(img.style.top);
+        var left = parseInt(img.style.left);
+
+        if(top - icebergTop <= 10 && left - icebergLeft <=10){
+          img.addClass('explode');
+          img.hide(1200);
+        }
+
+        if(icebergTop - top <= 10 && icebergLeft - left <=10){
+          img.addClass('explode');
+          img.hide(1200);
+        }
+
+      });
+
+    }, 100);
+
+
+  });
+
+  $(".iceberg").on("click", function(event){
+    
+    var icebergDancer = $(this).data("iceberg-function-name");
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var icebergFunction = window[icebergDancer];
+
+    var iceberg = new makeIcebergDancer(
+      $(window)[0].innerHeight*Math.random(),
+      $(window)[0].innerWidth*Math.random(), 
+      0);
+     
+    window.dancers.push(iceberg);
+    
+    $('body').append(iceberg.$node);
 
   });
 
@@ -98,7 +141,11 @@ $(document).ready(function() {
     window.move = true;
   });
 
-
+  //cb should be checking all of the window.dancers dancers 
+  //and their top & left location
+    //if their top and left is within 10px of iceberg
+      //explode it
+  
 
 
 

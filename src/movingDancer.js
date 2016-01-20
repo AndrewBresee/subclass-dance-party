@@ -16,7 +16,6 @@
 var movingDancer = function(top, left, timeBetweenSteps){
   makeBlinkyDancer.call(this, top, left, timeBetweenSteps);
   this.$node.removeClass('dancer');
-  console.log("this.$node :",this.$node)
   this.$node.addClass('dancer2');
 };
 

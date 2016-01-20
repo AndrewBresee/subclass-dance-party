@@ -14,7 +14,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .lineUp, .addMover, .scatter{
+.title, .addDancerButton, .lineUp, .addMover, .scatter, .iceberg{
   padding:5px 12px;
   float:right;
 }
@@ -37,11 +37,15 @@ body, a:link, a:visited, a:active{
 
 .dancer2{
   background-image: url("http://www.gif-gifs.com/hausa-gif/Boat%20Gif/Boat%20Gif%20(15).gif");
-  background-size: 100%;
+  background-size: 100  %;
 }
 .explode{
   background-image: url("http://rs651.pbsrc.com/albums/uu236/416o/explosion.gif~c200");
   position:absolute;
+}
+
+.iceberg{
+  background-image: url("https://image.spreadshirtmedia.com/image-server/v1/designs/12488695,width=178,height=178,version=1378216989/Icebear-Iceberg.png");
 }
 
 img{
