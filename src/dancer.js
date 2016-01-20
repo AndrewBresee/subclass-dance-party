@@ -31,5 +31,4 @@ makeDancer.prototype.setPosition = function(top, left) {
   };
 
   this.$node.css(this.styleSettings);
-  //this.$node.css('background-image',url('http://fla.fg-a.com/boats/sail-boat-animated-1.gif'));
 };

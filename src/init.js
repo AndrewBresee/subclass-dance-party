@@ -97,20 +97,19 @@ $(document).ready(function() {
 
     window.setInterval(function(){
       var dancers = $('img');
-      console.log(dancers); 
-      dancers.forEach(function(img){
+      dancers.each(function(index, img){
         var top = parseInt(img.style.top);
         var left = parseInt(img.style.left);
 
-        if(top - icebergTop <= 10 && left - icebergLeft <=10){
-          img.addClass('explode');
-          img.hide(1200);
-        }
+        var icebergTop = parseInt($('.iceberg')[0].style.top);
+        var icebergLeft = parseInt($('.iceberg')[0].style.left);
 
-        if(icebergTop - top <= 10 && icebergLeft - left <=10){
-          img.addClass('explode');
-          img.hide(1200);
+        if(Math.abs(top - icebergTop) <= 10 && Math.abs(left - icebergLeft) <=10){
+          $(this).addClass('explode');
+          $(this).hide(1200);
         }
+        console.log("differenceTop:", top - icebergTop);
+        
 
       });
 
@@ -121,6 +120,7 @@ $(document).ready(function() {
 
   $(".iceberg").on("click", function(event){
     
+    $('.iceberg').remove();    
     var icebergDancer = $(this).data("iceberg-function-name");
 
     // get the maker function for the kind of dancer we're supposed to make
@@ -133,9 +133,13 @@ $(document).ready(function() {
      
     window.dancers.push(iceberg);
     
-    $('body').append(iceberg.$node);
-
+    $('body').append(iceberg.$node);      
   });
+
+  if(window.iceberged){
+    console.log(window.iceberged);
+    
+  }
 
   $('.scatter').on('click', function(event){
     window.move = true;
