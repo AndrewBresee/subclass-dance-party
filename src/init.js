@@ -96,22 +96,21 @@ $(document).ready(function() {
 
 
     window.setInterval(function(){
-      var dancers = $('img');
+      var dancers = $('.dancer2');
       dancers.each(function(index, img){
-        var top = parseInt(img.style.top);
-        var left = parseInt(img.style.left);
+        // var top = parseInt(img.style.top);
+        // var left = parseInt(img.style.left);
+        var boatPosition = $(img).position(); 
+
+        var icebergTop = $('.iceberg').position().top;
+        var icebergLeft = $('.iceberg').position().left;
 
 
-        var icebergTop = parseInt($('.iceberg')[1].style.top);
-        var icebergLeft = parseInt($('.iceberg')[1].style.left);
 
-        console.log("icebergTop :", icebergTop);
-        console.log("icebergLeft :", icebergLeft);
-        //console.log("iceberg top:", icebergTop);
-
-        if(Math.abs(top - icebergTop) <= 5 && Math.abs(left - icebergLeft) <= 5){
-          $(this).addClass('explode'); 
-          $(this).hide(1200);
+        if(Math.abs(boatPosition.top - icebergTop) <= 100 && Math.abs(boatPosition.left - icebergLeft) <= 100){
+          console.log("FIRE!!!!!");
+          $(img).addClass('explode');
+          $(img).hide(1200);
         }
       });
 
@@ -122,26 +121,21 @@ $(document).ready(function() {
 
   $(".iceberg").on("click", function(event){
     
-    //$('.iceberg').remove();    
+    $('a.iceberg').remove();    
     var icebergDancer = $(this).data("iceberg-function-name");
 
     // get the maker function for the kind of dancer we're supposed to make
     var icebergFunction = window[icebergDancer];
 
     var iceberg = new makeIcebergDancer(
-      $(window)[0].innerHeight*Math.random(),
-      $(window)[0].innerWidth*Math.random(), 
+      $(window)[0].innerHeight* .5,
+      $(window)[0].innerWidth* .5, 
       0);
      
     window.dancers.push(iceberg);
     
     $('body').append(iceberg.$node);      
   });
-
-  if(window.iceberged){
-    console.log(window.iceberged);
-    
-  }
 
   $('.scatter').on('click', function(event){
     window.move = true;
@@ -150,9 +144,11 @@ $(document).ready(function() {
   //cb should be checking all of the window.dancers dancers 
   //and their top & left location
     //if their top and left is within 10px of iceberg
-      //explode it
+      //explode the ship
   
-
+  $('.argg').on('click', function(){
+    $('body').css('background-image', 'url("https://38.media.tumblr.com/1ae430c41a5d390d864b7a1dbe396fb3/tumblr_inline_nw0lnj5Hfh1rfbaqq_500.gif")');
+  });
 
 
 });
