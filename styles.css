@@ -26,7 +26,7 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 
-.dancer, .dancer2{
+.dancer, .dancer2, .bobbing{
   background-image: url("http://fla.fg-a.com/boats/sail-boat-animated-1.gif");
   position:absolute;
   height: 90px;
@@ -58,4 +58,9 @@ img{
 
 .argg{
   background-image: url('https://38.media.tumblr.com/1ae430c41a5d390d864b7a1dbe396fb3/tumblr_inline_nw0lnj5Hfh1rfbaqq_500.gif');
+}
+
+.sink{
+  background-image: url('http://clipart.coolclips.com/AGifm/tf05242/CoolClips_wb027449.gif');
+  position:absolute;
 }

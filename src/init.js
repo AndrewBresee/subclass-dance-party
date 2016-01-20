@@ -41,6 +41,11 @@ $(document).ready(function() {
       });
     });
 
+    $('.bobbing').on('mouseover', function(event){
+      $(this).addClass('sink');
+      $(this).hide(3000);
+    });
+
   });
 
   $('.lineUp').on('click', function(event){
@@ -89,9 +94,8 @@ $(document).ready(function() {
 
       $(this).fadeOut("fast");
       $(this).addClass('explode');
-      $(this).fadeOut(100, function(){
-        $(this).remove();
-      });
+      $(this).hide(3000);
+
     });
 
 
@@ -105,12 +109,9 @@ $(document).ready(function() {
         var icebergTop = $('.iceberg').position().top;
         var icebergLeft = $('.iceberg').position().left;
 
-
-
         if(Math.abs(boatPosition.top - icebergTop) <= 100 && Math.abs(boatPosition.left - icebergLeft) <= 100){
-          console.log("FIRE!!!!!");
           $(img).addClass('explode');
-          $(img).hide(1200);
+          $(img).hide(3000);
         }
       });
 
@@ -128,8 +129,8 @@ $(document).ready(function() {
     var icebergFunction = window[icebergDancer];
 
     var iceberg = new makeIcebergDancer(
-      $(window)[0].innerHeight* .5,
-      $(window)[0].innerWidth* .5, 
+      $(window)[0].innerHeight* .5 + Math.random() * 100,
+      $(window)[0].innerWidth* .5 + Math.random() * 100, 
       0);
      
     window.dancers.push(iceberg);
