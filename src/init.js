@@ -101,16 +101,18 @@ $(document).ready(function() {
         var top = parseInt(img.style.top);
         var left = parseInt(img.style.left);
 
-        var icebergTop = parseInt($('.iceberg')[0].style.top);
-        var icebergLeft = parseInt($('.iceberg')[0].style.left);
 
-        if(Math.abs(top - icebergTop) <= 10 && Math.abs(left - icebergLeft) <=10){
-          $(this).addClass('explode');
+        var icebergTop = parseInt($('.iceberg')[1].style.top);
+        var icebergLeft = parseInt($('.iceberg')[1].style.left);
+
+        console.log("icebergTop :", icebergTop);
+        console.log("icebergLeft :", icebergLeft);
+        //console.log("iceberg top:", icebergTop);
+
+        if(Math.abs(top - icebergTop) <= 5 && Math.abs(left - icebergLeft) <= 5){
+          $(this).addClass('explode'); 
           $(this).hide(1200);
         }
-        console.log("differenceTop:", top - icebergTop);
-        
-
       });
 
     }, 100);
@@ -120,7 +122,7 @@ $(document).ready(function() {
 
   $(".iceberg").on("click", function(event){
     
-    $('.iceberg').remove();    
+    //$('.iceberg').remove();    
     var icebergDancer = $(this).data("iceberg-function-name");
 
     // get the maker function for the kind of dancer we're supposed to make
